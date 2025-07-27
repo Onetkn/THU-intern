@@ -1,5 +1,5 @@
 # THU-intern
-该repo主要记录我在清华暑期实习的一些学习记录
+该repo主要记录我在清华脑与智能实验室暑期实习的一些学习记录
 大概包括EEGNET，模型的可解释性方法，EEGNET应用及相关可解释性分析等等\
 **仅供学习参考，本人实力有限，不当之处尽可邮箱指正！**\
 email：lzy123@bupt.edu.cn
@@ -21,4 +21,4 @@ past-MDD：12人以SCID=2为标准\
 \
 可以通过json文件得知电网的工作频率是60Hz，<img width="359" height="34" alt="image" src="https://github.com/user-attachments/assets/999d1f09-ca96-4ddb-9150-08a8e3999983" />\
 所以额外采用一次陷波滤波（notch-filter 60Hz）去除噪声\
-接下来，我们需要找出“坏通道”（bad channels，简称‘bads’）。可以利用mne.preprocessing的find_bad_channels_lof库直接进行操作。
+接下来，我们需要找出“坏通道”（bad channels，简称‘bads’）。去除平线，极端噪声和剧烈漂移信号通道。可以利用mne.preprocessing的find_bad_channels_lof库直接进行操作。以标准差为检验标准，threshold=1.5，超过则认定为bads
