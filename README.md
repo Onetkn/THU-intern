@@ -11,3 +11,14 @@ MDD:11人，以SCID=1为标准\
 DP：23人，以BDI分数>13为标准\
 HC：75人\
 past-MDD：12人以SCID=2为标准\
+\
+\
+以507被试为例，先利用mne库读取文件放置raw中。可以通过打印raw.ch_names查看raw有哪些EEG channel。
+<img width="776" height="839" alt="image" src="https://github.com/user-attachments/assets/873e8bed-dc8f-47eb-acc4-684a45d57239" />
+经过检验，所有被试的通道形式都为64EEG+2EOG（HEOG+VEOG，水平眼动和垂直眼动）
+因为原EEG信号并未进行过滤波处理，所以此处我们浅显地采用一个带通滤波器,范围在（0.5~40Hz）\
+\
+\
+可以通过json文件得知电网的工作频率是60Hz，<img width="359" height="34" alt="image" src="https://github.com/user-attachments/assets/999d1f09-ca96-4ddb-9150-08a8e3999983" />\
+所以额外采用一次陷波滤波（notch-filter 60Hz）去除噪声\
+接下来，我们需要找出“坏通道”（bad channels，简称‘bads’）。可以利用mne.preprocessing的find_bad_channels_lof库直接进行操作。
