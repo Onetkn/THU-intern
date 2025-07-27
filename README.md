@@ -14,7 +14,7 @@ past-MDD：12人以SCID=2为标准\
 \
 \
 以507被试为例，先利用mne库读取文件放置raw中。可以通过打印raw.ch_names查看raw有哪些EEG channel。
-<img width="776" height="839" alt="image" src="https://github.com/user-attachments/assets/873e8bed-dc8f-47eb-acc4-684a45d57239" />
+<img width="776" height="839" alt="image" src="https://github.com/user-attachments/assets/873e8bed-dc8f-47eb-acc4-684a45d57239" />\
 经过检验，所有被试的通道形式都为64EEG+2EOG（HEOG+VEOG，水平眼动和垂直眼动）
 因为原EEG信号并未进行过滤波处理，所以此处我们浅显地采用一个带通滤波器,范围在（0.5~40Hz）\
 \
